@@ -11,29 +11,26 @@ public class WhiteBallBouncer : MonoBehaviour
 
     private Vector3 lastFrameVelocity;
     private Rigidbody rb;
-    public static int whitesphereLife = 4;
+    public static int donut_num = 2;
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody>();
         rb.velocity = initialVelocity;
     }
 
-    private void Update()
-    {
-        lastFrameVelocity = rb.velocity;
-    }
+ 
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "destroywall")
         {
             Destroy(gameObject);
-            whitesphereLife--;
+   
         }
         else if (collision.gameObject.tag == "whitedonut")
         {
             Destroy(gameObject);
-            whitesphereLife--;
+            donut_num--;
         }
         else
         {
@@ -41,11 +38,16 @@ public class WhiteBallBouncer : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        lastFrameVelocity = rb.velocity;
+     
+    }
+
     private void Bounce(Vector3 collisionNormal)
     {
         var speed = lastFrameVelocity.magnitude;
         var direction = Vector3.Reflect(lastFrameVelocity.normalized, collisionNormal);
-
         Debug.Log("Out Direction: " + direction);
         rb.velocity = direction * Mathf.Max(speed, minVelocity);
     }

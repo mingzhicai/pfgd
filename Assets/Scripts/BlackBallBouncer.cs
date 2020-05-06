@@ -9,9 +9,10 @@ public class BlackBallBouncer : MonoBehaviour
     [SerializeField]
     private float minVelocity = 10f;
 
+    public GameObject win;
+    public GameObject restart;
     private Vector3 lastFrameVelocity;
     private Rigidbody rb;
-    public static int blacksphereLife = 4;
     private void OnEnable()
     {
         rb = GetComponent<Rigidbody>();
@@ -21,26 +22,27 @@ public class BlackBallBouncer : MonoBehaviour
     private void Update()
     {
         lastFrameVelocity = rb.velocity;
-    }
 
+    }
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "destroywall")
         {
             Destroy(gameObject);
-            blacksphereLife--;
         }
         else if (collision.gameObject.tag == "blackdonut")
         {
             Destroy(gameObject);
-            blacksphereLife--;
+
         }
+ 
         else
         {
             Bounce(collision.contacts[0].normal);
         }
     }
 
+ 
     private void Bounce(Vector3 collisionNormal)
     {
         var speed = lastFrameVelocity.magnitude;

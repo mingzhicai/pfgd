@@ -16,6 +16,8 @@ TagManager:
   - win
   - lose
   - restart
+  - whitebrick
+  - blackbrick
   layers:
   - Default
   - TransparentFX

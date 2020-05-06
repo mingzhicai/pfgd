@@ -2,49 +2,51 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
 {
-    public GameObject whitedonut;
-    public GameObject blackdonut;
+
     public GameObject blackscoretext;
     public GameObject whitescoretext;
     private GameObject[] whitebricks;
     private GameObject[] blackbricks;
-    private int wsl;
-    private int bsl;
     private int blackscore;
     private int whitescore;
     public GameObject win;
-    public GameObject lose;
+    public GameObject restart;
+    public TextMesh whitetext = GameObject.Find("WhiteScore").GetComponent<TextMesh>();
+    public TextMesh blacktext = GameObject.Find("BlackScore").GetComponent<TextMesh>();
+
+    public MeshRenderer b = GameObject.Find("BlackCore").GetComponent<MeshRenderer>();
+    public MeshRenderer w = GameObject.Find("WhiteCore").GetComponent<MeshRenderer>();
+
     // Start is called before the first frame update
     void Start()
     {
-        win = GameObject.FindGameObjectWithTag("win");
-        lose = GameObject.FindGameObjectWithTag("lose");
+        whitetext.text = "WhiteScore: ";
+        blacktext.text = "BlackScore: " + blackscore.ToString();
     }
 
     // Update is called once per frame
     void Update()
     {
-        wsl = WhiteBallBouncer.whitesphereLife;
-        bsl = BlackBallBouncer.blacksphereLife;
+
         whitebricks = GameObject.FindGameObjectsWithTag("whitebrick");
         blackbricks = GameObject.FindGameObjectsWithTag("blackbrick");
-        whitescore = 40 - whitebricks.Length;
-        blackscore = 40 - blackbricks.Length;
-        whitescoretext.GetComponent<TextMesh>().text = "WhiteScore: " + whitescore.ToString();
-        blackscoretext.GetComponent<TextMesh>().text = "BlackScore: " + blackscore.ToString();
+        whitescore = 64 - whitebricks.Length;
+        blackscore = 64 - blackbricks.Length;
+        whitetext.text = "White◼︎: " + whitescore.ToString(); 
+        blacktext.text = "Black◼︎: " + blackscore.ToString();
+       
 
-        if ((whitedonut.GetComponent<BoxCollider>().enabled = false )&& (blackdonut.GetComponent<BoxCollider>().enabled = false))
+
+        if (b.enabled == true && w.enabled == true)
         {
-           
             win.GetComponent<MeshRenderer>().enabled = true;
+            restart.GetComponent<MeshRenderer>().enabled = true;
+            restart.GetComponent<BoxCollider>().enabled = true;
         }
-        if (wsl == 0 && bsl == 0)
-        {
-            lose.GetComponent<MeshRenderer>().enabled = true;
-        }
-   
+
     }
 }

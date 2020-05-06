@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 6039278684762837222}
   - component: {fileID: 68498046143130655}
   - component: {fileID: 7777260837823990399}
-  - component: {fileID: 7777260837823990394}
-  - component: {fileID: 7777260837823990395}
+  - component: {fileID: 8296172668083351566}
   m_Layer: 0
   m_Name: wand_right
   m_TagString: Untagged
@@ -28,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787802129771616451}
-  m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.011, y: 0.521, z: -0.04}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
@@ -98,35 +97,16 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
---- !u!64 &7777260837823990394
-MeshCollider:
+--- !u!135 &8296172668083351566
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787802129771616451}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 5abb610621dcb4d84ae697e07cda1af6, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 2540817853737639666, guid: 60ebfe3faa8b34ef49ef92638fad67dd, type: 3}
---- !u!114 &7777260837823990395
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1787802129771616451}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02d61468f8b77ae4b92c344bc9a600fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_allowOffhandGrab: 1
-  m_snapPosition: 0
-  m_snapOrientation: 1
-  m_snapOffset: {fileID: 0}
-  m_grabPoints:
-  - {fileID: 7777260837823990394}
+  serializedVersion: 2
+  m_Radius: 0.008
+  m_Center: {x: 0, y: 0.054343235, z: -1.159144e-16}

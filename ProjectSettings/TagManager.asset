@@ -4,7 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - sphere
+  - whitewand
+  - blackwand
+  - whitesphere
+  - blacksphere
+  - destroywall
+  - whitedonut
+  - blackdonut
+  - blackcore
+  - whitecore
+  - win
+  - lose
+  - restart
   layers:
   - Default
   - TransparentFX
@@ -14,10 +25,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - whitewand
+  - blackwand
+  - whitesphere
+  - blacksphere
   - 
   - 
   - 
